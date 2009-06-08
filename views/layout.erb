@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>twobot</title>
+    <style type="text/css" media="screen">
+      *, html{
+        font-family:courier;
+        background:black;
+        color:#80E444;
+      }
+      h1, h2, h3, h4, table, pre, html, body{
+        margin:0; padding:0;
+        font-weight:normal;
+      }
+      
+      .header {
+        background: #A0E47B;
+        padding:5px;
+        margin-bottom:5px;
+      }
+      
+      .header a{
+        background: #A0E47B;
+        color:#000;
+        text-decoration:none;
+      }
+      
+      .content{
+        padding:5px;
+      }
+      
+      .section{
+        margin-bottom:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header"><a href="/">home</a></div>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

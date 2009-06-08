@@ -30,5 +30,5 @@ class Twobot < ActiveRecord::Base
     }
     # threads.each{|thread|thread.join}
   end
-  
+
 end

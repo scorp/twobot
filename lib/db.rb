@@ -9,7 +9,6 @@ class DB
     # create the database connection
     def setup_connection
       config = ERB.new(File.read(File.join(APP_ROOT, "config", "database.yml"))).result
-      ActiveRecord::Base.allow_concurrency = true
       ActiveRecord::Base.establish_connection(YAML.load(config))
       DB.prepare_schema
     end
@@ -21,6 +20,7 @@ class DB
           # a twobot instance
           create_table  :twobots do |t|
             t.string    :name
+            t.string    :status,           :null => false,   :default => "active"
           end
           add_index :twobots, :name
         
