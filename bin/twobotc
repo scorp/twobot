@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+exec "irb -r #{File.join(File.dirname($0), '..', 'lib', 'boot.rb')}"

@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require File.join(File.dirname($0), '..', 'lib', 'boot.rb')
+
+loop do
+  Util.log_info "running"
+  # iterate over all twobots
+  # threads = []
+  Twobot.all.each do |twobot|
+    # execute the search processes for this twobot
+    # threads << Thread.new do 
+      twobot.twake_twaction
+    # end
+  end
+  # threads.each{|thread| thread.join}
+  sleep 5
+end

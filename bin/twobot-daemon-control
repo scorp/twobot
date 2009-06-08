@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require File.join(File.dirname($0), '..', 'lib', 'boot.rb')
+Daemons.run(File.join(APP_ROOT, "bin", "twobotd"))

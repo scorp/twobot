@@ -21,7 +21,14 @@ class Twobot < ActiveRecord::Base
   
   # execute a search and run any related actions
   def twake_twaction
-    Search.all.each{|search| search.execute}
+    # threads = []
+    searches.all.each{|search| 
+      # threads << Thread.new do
+        puts "running:#{search.query}"
+        search.execute_when_ready
+      # end
+    }
+    # threads.each{|thread|thread.join}
   end
   
 end
