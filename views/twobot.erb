@@ -1,2 +1,43 @@
 <h1><%=@twobot.name%></h1>
-<h4></h4>
+<div class="section">
+  <h1>new search action</h1>
+  <form action="/twobot/<%=@twobot.id%>/searches" method="post">
+    <label for="query">query:</label>
+    <br />
+    <input name="query" id="query" type="text"></input>
+    <br />
+    <label for="code">code to execute:</label>
+    <br />
+    <textarea name="code" id="code" type="text" class="code_editor">def process(tweet)
+
+end</textarea>
+    <input type="submit" value="save" />
+  </form>
+</div>
+</div>
+<div class="section">
+<h4>Searches</h4>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <tr>
+        <th>query</th>
+        <th>last run</th>
+        <th>last result count</th>
+        <th>total result count</th>
+        <th>action count</th>
+        <th></th>
+    </tr>
+    <tbody>
+      <% @twobot.searches.each do |search| %>
+      <tr>
+        <td><%=search.query%></td>
+        <td><%=search.last_run%></td>
+        <td><%=search.last_result_count%></td>
+        <td><%=search.total%></td>
+        <td><%=search.actions.size%></td>
+        <td><a href="/twobot/<%=@twobot.id%>/searches/<%=search.id%>/view">view</a> | 
+            <a href="/twobot/<%=@twobot.id%>/searches/<%=search.id%>/destroy">destroy</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

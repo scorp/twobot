@@ -22,6 +22,8 @@
   <tr>
       <th>id</th>
       <th>name</th>
+      <th>search count</th>
+      <th>search action count</th>
       <th>status</th>
       <th></th>
   </tr>
@@ -29,6 +31,8 @@
   <tr>
     <td><%=twobot.id%></td>
     <td><%=twobot.name%></td>
+    <td><%=twobot.searches.count%></td>
+    <td><%=twobot.searches.collect{|search|search.actions}.flatten.size%></td>
     <td><%=twobot.status == "active" ? "active <a href=\"/twobot/#{twobot.id}/deactivate\">deactivate</a>" : "inactive <a href=\"/twobot/#{twobot.id}/activate\">activate</a>"%></td>
     <td><a href="/twobot/<%=twobot.id%>">view</td>
   </tr>

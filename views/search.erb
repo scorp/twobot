@@ -1,0 +1,33 @@
+<div class="section">
+<h4>Search : <%= @search.query%></h4>
+last run : <%=@search.last_run%><br />
+last result count : <%=@search.last_result_count%><br />
+total result count : <%=@search.total%><br />
+</div>
+<div class="section">
+  <h4>new action</h4>
+  <form action="/twobot/<%=@twobot.id%>/searches/<%=@search.id%>/actions" method="post">
+    <br />
+    <textarea name="code" type="text" class="code_editor">def process(tweet)
+
+end</textarea>
+    <input type="submit" value="save" />
+  </form>
+</div>
+<div class="section">
+<h4 class="actions">existing actions</h4>
+
+  <% @search.actions.each do |action| %>
+  <form action="/twobot/<%=@twobot.id%>/searches/<%=@search.id%>/actions/<%=action.id%>" method="post">
+  <div>
+    <br />
+    <textarea name="code" type="text" class="code_editor"><%=action.code%></textarea>
+    <br />
+    <input type="submit" value="save"></input>
+    <a href="/twobot/<%=@twobot.id%>/searches/<%=@search.id%>/actions/<%=action.id%>/destroy">destroy</a>
+  </div>
+  <br />
+  ----------------------------
+  </form>
+  <% end %>
+</div>
