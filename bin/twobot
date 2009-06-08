@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require File.join(File.dirname($0), '..', 'lib', 'boot.rb')
+
+params = ARGV.getopts("q", "v", "a")
+@action = params["a"]
+@search = params["q"]
+
+twobby = Twobot.first || Twobot.create({:name=>"twobby"})
+twobby.add_search_action({
+  :query => "brooklyn",
+  :code  => "def process(hit);puts hit.text;end"
+})
+twobby.twake_twaction
