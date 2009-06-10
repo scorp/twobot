@@ -32,6 +32,12 @@ class WebAdmin < Sinatra::Base
     halt :status => 404 unless @twobot 
     erb :twobot
   end
+  
+  # create a twobot
+  post "/twobot" do
+    Twobot.create(:name => params[:name])
+    redirect "/"
+  end
 
   get "/twobot/:id/activate" do
     @twobot = Twobot.find(params[:id])

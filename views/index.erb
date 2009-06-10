@@ -16,6 +16,16 @@
   </h4>
 </div>
 
+<a href="#" onclick="$('#add_twobot').toggle()">add a new twobot</a>
+<br /><br />
+<div id="add_twobot" class="section" style="display:none">
+  <form method="post" action="/twobot">
+    <label for="name">name:</label>
+    <input type="text" name="name"></input>
+    <input type="submit" value="add"></input>
+  </form>
+</div>
+
 <div class="section">
 <h4>twobots:</h4>
 <table border="1" cellspacing="0" cellpadding="5">

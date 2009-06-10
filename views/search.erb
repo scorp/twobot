@@ -4,10 +4,12 @@ last run : <%=@search.last_run%><br />
 last result count : <%=@search.last_result_count%><br />
 total result count : <%=@search.total%><br />
 </div>
-<div class="section">
-  <h4>new action</h4>
+<a href="#" onclick="$('#new_search_action').toggle()">add a new action</a>
+<br /><br />
+<div id="new_search_action" style="display:none" class="section">
   <form action="/twobot/<%=@twobot.id%>/searches/<%=@search.id%>/actions" method="post">
     <br />
+    code to execute:
     <textarea name="code" type="text" class="code_editor">def process(tweet)
 
 end</textarea>
@@ -15,7 +17,7 @@ end</textarea>
   </form>
 </div>
 <div class="section">
-<h4 class="actions">existing actions</h4>
+  <h4 class="actions">existing actions</h4>
 
   <% @search.actions.each do |action| %>
   <form action="/twobot/<%=@twobot.id%>/searches/<%=@search.id%>/actions/<%=action.id%>" method="post">
@@ -31,3 +33,5 @@ end</textarea>
   </form>
   <% end %>
 </div>
+
+

@@ -1,6 +1,7 @@
 <h1><%=@twobot.name%></h1>
-<div class="section">
-  <h1>new search action</h1>
+<a href="#" onclick="$('#new_search_action').toggle()">add a new search action</a>
+<br /><br />
+<div id="new_search_action" style="display:none" class="section">
   <form action="/twobot/<%=@twobot.id%>/searches" method="post">
     <label for="query">query:</label>
     <br />
@@ -14,8 +15,7 @@ end</textarea>
     <input type="submit" value="save" />
   </form>
 </div>
-</div>
-<div class="section">
+<div class="section" >
 <h4>Searches</h4>
   <table border="1" cellspacing="0" cellpadding="5">
     <tr>
